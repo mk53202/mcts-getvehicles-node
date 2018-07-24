@@ -21,8 +21,7 @@ var request_options = {
     dir: bus_direction
   },
   headers: {
-    'cache-control': 'no-cache',
-    'Access-Control-Allow-Origin' : '*'
+    'cache-control': 'no-cache'
   },
   json: false // the response comes back as xml not json, see below
 }
@@ -31,6 +30,7 @@ const app = express()
 
 app.get('/', function (req, res) {
   getVehicles( function(my_results) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:7300');
     res.send(JSON.stringify(my_results))
   });
 })
