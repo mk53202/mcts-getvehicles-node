@@ -1,0 +1,23 @@
+{
+  "name": "mcts-route-node",
+  "version": "1.0.0",
+  "description": "mcts-route-node - Simple service to return JSON structure of MCTS route",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcts",
+    "json",
+    "service"
+  ],
+  "author": "Matt Koster",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "xml2js": "^0.4.19"
+  }
+}
