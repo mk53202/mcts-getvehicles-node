@@ -30,7 +30,7 @@ const app = express()
 
 app.get('/', function (req, res) {
   getVehicles( function(my_results) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:7300');
+    res.setHeader('Access-Control-Allow-Origin', 'http://10.0.1.230:7300');
     res.send(JSON.stringify(my_results))
   });
 })
