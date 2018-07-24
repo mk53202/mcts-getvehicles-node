@@ -8,8 +8,7 @@ const express = require('express')
 const BUSTIME_URL = 'http://realtime.ridemcts.com/bustime/api/v1/getvehicles'
 const BUSTIME_API_KEY = process.env.BUSTIME_API_KEY // Get unique key and store it in .env
 const SERVER_PORT = 7300
-const bus_route = 'GRE'
-const bus_direction = 'NORTH'
+const bus_route = 'GRE,14'
 
 // Format and options for the request
 var request_options = {
@@ -17,8 +16,7 @@ var request_options = {
   uri: BUSTIME_URL,
   qs: {
     key: BUSTIME_API_KEY,
-    rt: bus_route,
-    dir: bus_direction
+    rt: bus_route
   },
   headers: {
     'cache-control': 'no-cache'
@@ -30,13 +28,12 @@ const app = express()
 
 app.get('/', function (req, res) {
   getVehicles( function(my_results) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://10.0.1.230:7300');
     res.send(JSON.stringify(my_results))
   });
 })
 
 app.listen(SERVER_PORT, function() {
-  console.log('Example app listening on port {SERVER_PORT}')
+  console.log('BUSTIME server listening on port {SERVER_PORT}')
 });
 
 function getVehicles( callback ) {
