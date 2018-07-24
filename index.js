@@ -11,6 +11,22 @@ const SERVER_PORT = 7300
 const bus_route = 'GRE'
 const bus_direction = 'NORTH'
 
+// Format and options for the request
+var request_options = {
+  method: 'GET',
+  uri: BUSTIME_URL,
+  qs: {
+    key: BUSTIME_API_KEY,
+    rt: bus_route,
+    dir: bus_direction
+  },
+  headers: {
+    'cache-control': 'no-cache',
+    'Access-Control-Allow-Origin' : '*'
+  },
+  json: false // the response comes back as xml not json, see below
+}
+
 const app = express()
 
 app.get('/', function (req, res) {
@@ -22,21 +38,6 @@ app.get('/', function (req, res) {
 app.listen(SERVER_PORT, function() {
   console.log('Example app listening on port {SERVER_PORT}')
 });
-
-// Format and options for the request
-var request_options = {
-  method: 'GET',
-  uri: BUSTIME_URL,
-  qs: {
-    key: BUSTIME_API_KEY,
-    rt: bus_route,
-    dir: bus_direction
-  },
-  headers: {
-    'cache-control': 'no-cache'
-  },
-  json: false // the response comes back as xml not json, see below
-}
 
 function getVehicles( callback ) {
   request( request_options )
