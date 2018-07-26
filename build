@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ -f ./.env ]; then
+   sudo docker build -t alpine/bustime .
+else
+   echo .env doesn't exist! Please copy .env_sample with API key to .env. Exiting build... B-(
+fi
