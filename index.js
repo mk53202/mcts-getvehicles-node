@@ -54,3 +54,7 @@ function getVehicles( callback ) {
       console.log( err ) // Something bad happened, handle the error
     })
 }
+
+function trimVehiclesList( callback ) {
+  callback( json_result )
+}
