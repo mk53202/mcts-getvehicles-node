@@ -17,10 +17,10 @@ COPY . /www
 WORKDIR /www
 
 # set your port
-ENV PORT 8080
+ENV PORT 7300
 
 # expose the port to outside world
-EXPOSE  8080
+EXPOSE  7300
 
 # start command as per package.json
 CMD ["npm", "start"]
