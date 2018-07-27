@@ -2,4 +2,4 @@
 
 
 echo '<--- Dockit --->'
-sudo docker run --detach --memory=50m --publish 7300:7300 --name my-bustime alpine/bustime
+sudo docker run --detach --publish 7300:7300 --name my-bustime alpine/bustime
