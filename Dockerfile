@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.8
 
 # File Author / Maintainer
 LABEL authors="Matt Koster <mattkoster@gmail.com>"
@@ -16,10 +16,10 @@ COPY . /www
 # Set work directory to /www
 WORKDIR /www
 
-# set your port
+# set port
 ENV PORT 7300
 
-# expose the port to outside world
+# expose the port to outside
 EXPOSE  7300
 
 # start command as per package.json
