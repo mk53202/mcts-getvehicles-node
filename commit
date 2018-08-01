@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 docker login
-docker commit my-alpine-bustime mk53202/alpine-bustime:latest
+docker commit my-bustime mk53202/alpine-bustime:latest
 docker push mk53202/alpine-bustime:latest
