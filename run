@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-
-echo '<--- Dockit --->'
-sudo docker run --detach --publish 7300:7300 --name my-bustime alpine/bustime
+sudo docker run --detach --publish 7300:7300 --name my-bustime alpine-bustime

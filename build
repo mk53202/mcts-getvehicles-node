@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -f ./.env ]; then
-   sudo docker build -t alpine/bustime .
+   sudo docker build -t alpine-bustime .
 else
    echo Please copy .env_sample with API key to .env, exiting build. Sad face.
 fi

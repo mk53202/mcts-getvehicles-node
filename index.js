@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 })
 
 app.listen(SERVER_PORT, function() {
-  console.log('BUSTIME server listening on port {SERVER_PORT}')
+  console.log('BUSTIME server listening on port ' + SERVER_PORT)
 });
 
 function getVehicles( callback ) {
