@@ -8,7 +8,7 @@ const express = require('express')
 const BUSTIME_URL = 'http://realtime.ridemcts.com/bustime/api/v1/getvehicles'
 const BUSTIME_API_KEY = process.env.BUSTIME_API_KEY // Get unique key and store it in .env
 const SERVER_PORT = 7300
-const BUS_ROUTES = 'GREEN,14,31,15,GOLD'
+const BUS_ROUTES = 'GREEN,14'
 
 // Format and options for the request
 var request_options = {
