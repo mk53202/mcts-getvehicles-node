@@ -1,10 +1,10 @@
-FROM alpine:3.4
+FROM alpine:3.8
 
 # File Author / Maintainer
 LABEL authors="Matt Koster <mattkoster@gmail.com>"
 
 # Update & install required packages
-RUN apk add --update nodejs bash git
+RUN apk add --update nodejs npm bash
 
 # Install app dependencies
 COPY package.json /www/package.json
