@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "mcts-route-node - Simple service to return JSON structure of MCTS route",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/mk53202/mcts-getvehicles-node.git"
+    "type": "git",
+    "url": "https://github.com/mk53202/mcts-getvehicles-node.git"
   },
   "main": "index.js",
   "scripts": {
