@@ -10,20 +10,6 @@ const BUSTIME_API_KEY = process.env.BUSTIME_API_KEY // Get unique key and store 
 const SERVER_PORT = 7300
 const BUS_ROUTES = 'GREEN,14'
 
-// Format and options for the request
-var request_options = {
-  method: 'GET',
-  uri: BUSTIME_URL,
-  qs: {
-    key: BUSTIME_API_KEY,
-    rt: BUS_ROUTES
-  },
-  headers: {
-    'cache-control': 'no-cache'
-  },
-  json: false // the response comes back as xml not json, see below
-}
-
 const app = express()
 
 app.use(function(req, res, next) {
@@ -33,7 +19,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function (req, res) {
-  getVehicles( function(my_results) {
+  getVehicles( req, function(my_results) {
     res.send(JSON.stringify(my_results))
   });
 })
@@ -42,7 +28,24 @@ app.listen(SERVER_PORT, function() {
   console.log('BUSTIME server listening on port ' + SERVER_PORT)
 });
 
-function getVehicles( callback ) {
+function getVehicles( req, callback ) {
+
+  var routes = req.query.routes; // improvement, add check for formatting of routes
+
+  // Format and options for the request
+  var request_options = {
+    method: 'GET',
+    uri: BUSTIME_URL,
+    qs: {
+      key: BUSTIME_API_KEY,
+      rt: routes
+    },
+    headers: {
+      'cache-control': 'no-cache'
+    },
+    json: false // the response comes back as xml not json, see below
+  }
+
   request( request_options )
     .then(function (response) {  // Request was successful
       parseXML(response, function (err, result) { // from xml2js
